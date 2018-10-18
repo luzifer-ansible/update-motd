@@ -1,0 +1,12 @@
+---
+
+update_motd_blacklist: []
+update_motd_scripts: []
+  #- name: 50-test
+  #  content: |
+  #    #!/bin/bash
+  #    set -euo pipefail
+  #
+  #    echo "I'm just a test"
+
+...

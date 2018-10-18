@@ -1,0 +1,18 @@
+---
+
+- name: Disable blacklisted scripts
+  file:
+    dest: "/etc/update-motd.d/{{ item }}"
+    state: absent
+  with_items: "{{ update_motd_blacklist | default([]) }}"
+
+- name: Install custom update scripts
+  copy:
+    content: "{{ item.content }}"
+    dest: "/etc/update-motd.d/{{ item.name }}"
+    mode: '0755'
+    owner: root
+    group: root
+  with_items: '{{ update_motd_scripts }}'
+
+...
